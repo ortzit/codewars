@@ -1,9 +1,7 @@
 package romannumerals
 
-import org.junit.jupiter.api.Disabled
 import kotlin.test.assertEquals
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
 
 internal class RomanNumeralsKtTest {
     @Test
@@ -36,16 +34,5 @@ internal class RomanNumeralsKtTest {
     @Test
     fun four_digits_composed() {
         assertEquals(9999, decode("MMMMMMMMMCMXCIX"))
-    }
-
-    @Disabled
-    @Test
-    fun not_valid() {
-        assertThrows<RuntimeException> { decode("IC") }
-        assertThrows<RuntimeException> { decode("VC") }
-        assertThrows<RuntimeException> { decode("ID") }
-        assertThrows<RuntimeException> { decode("VD") }
-        assertThrows<RuntimeException> { decode("IM") }
-        assertThrows<RuntimeException> { decode("DM") }
     }
 }

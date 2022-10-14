@@ -1,5 +1,15 @@
 package romannumerals
 
+private val VALUES = mapOf(
+    'I' to 1,
+    'V' to 5,
+    'X' to 10,
+    'L' to 50,
+    'C' to 100,
+    'D' to 500,
+    'M' to 1000
+)
+
 fun decode(romanNumber: String): Int {
     var result = 0
     romanNumber.forEachIndexed { index, romanDigit ->
@@ -22,16 +32,7 @@ private fun Int.plus(romanDigits: Array<Char>): Int = this.plus(romanDigits[1].d
 private fun Int.undoPreviousOperation(romanNumber: String, index: Int): Int = this.minus(romanNumber[index - 1])
 
 private fun Char.decode(): Int =
-    when(this) {
-        'I' -> 1
-        'V' -> 5
-        'X' -> 10
-        'L' -> 50
-        'C' -> 100
-        'D' -> 500
-        'M' -> 1000
-        else -> throw RuntimeException("Invalid value [$this]")
-    }
+    VALUES.containsKey(this).let { VALUES[this] } ?: throw RuntimeException("Invalid value [$this]")
 
 private fun Char.hasAsMinusDigit(possibleMinusRomanDigit: Char): Boolean =
     when(possibleMinusRomanDigit) {
