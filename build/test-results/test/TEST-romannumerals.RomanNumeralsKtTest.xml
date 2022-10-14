@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="romannumerals.RomanNumeralsKtTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-14T13:39:01" hostname="LAPTOP-065IHCDR" time="26.149">
+  <properties/>
+  <testcase name="basic()" classname="romannumerals.RomanNumeralsKtTest" time="26.149"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
