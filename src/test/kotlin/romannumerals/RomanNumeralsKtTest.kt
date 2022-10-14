@@ -23,6 +23,7 @@ internal class RomanNumeralsKtTest {
 
     @Test
     fun two_digits_composed() {
+        assertEquals(40, decode("XL"))
         assertEquals(90, decode("XC"))
     }
 
