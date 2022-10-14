@@ -17,19 +17,15 @@ fun decode(romanNumber: String): Int {
             result = result.undoPreviousOperation(romanNumber, index)
             result = result.plus(arrayOf(romanNumber[index-1], romanDigit))
         } else {
-            result = result.plus(romanDigit)
+            result += romanDigit.decode()
         }
     }
     return result
 }
 
-private fun Int.plus(romanDigit: Char): Int = this + romanDigit.decode()
-
-private fun Int.minus(romanDigit: Char): Int = this - romanDigit.decode()
-
 private fun Int.plus(romanDigits: Array<Char>): Int = this.plus(romanDigits[1].decode() - romanDigits[0].decode())
 
-private fun Int.undoPreviousOperation(romanNumber: String, index: Int): Int = this.minus(romanNumber[index - 1])
+private fun Int.undoPreviousOperation(romanNumber: String, index: Int): Int = this - romanNumber[index - 1].decode()
 
 private fun Char.decode(): Int =
     VALUES.containsKey(this).let { VALUES[this] } ?: throw RuntimeException("Invalid value [$this]")
