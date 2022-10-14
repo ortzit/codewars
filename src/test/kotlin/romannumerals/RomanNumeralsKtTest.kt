@@ -33,6 +33,11 @@ internal class RomanNumeralsKtTest {
         assertEquals(900, decode("CM"))
     }
 
+    @Test
+    fun four_digits_composed() {
+        assertEquals(9999, decode("MMMMMMMMMCMXCIX"))
+    }
+
     @Disabled
     @Test
     fun not_valid() {
