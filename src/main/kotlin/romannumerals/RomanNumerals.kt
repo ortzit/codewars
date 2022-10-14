@@ -1,15 +1,15 @@
 package romannumerals
 
-fun decode(str: String): Int {
+fun decode(romanNumber: String): Int {
     var decoded = 0
-    str.forEach { character ->
-        decoded += characterDecode(character)
+    romanNumber.forEach { romanDigit ->
+        decoded += characterDecode(romanDigit)
     }
     return decoded
 }
 
-private fun characterDecode(c: Char): Int =
-    when(c) {
+private fun characterDecode(romanDigit: Char): Int =
+    when(romanDigit) {
         'I' -> 1
         'V' -> 5
         'X' -> 10
@@ -17,5 +17,5 @@ private fun characterDecode(c: Char): Int =
         'C' -> 100
         'D' -> 500
         'M' -> 1000
-        else -> throw RuntimeException("Invalid value [$c]")
+        else -> throw RuntimeException("Invalid value [$romanDigit]")
     }
