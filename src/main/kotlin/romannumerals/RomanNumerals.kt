@@ -13,19 +13,13 @@ private val VALUES = mapOf(
 fun decode(romanNumber: String): Int {
     var result = 0
     romanNumber.forEachIndexed { index, romanDigit ->
-        if(index > 0 && romanDigit.hasAsMinusDigit(romanNumber[index-1])){
-            result = result.undoPreviousOperation(romanNumber, index)
-            result = result.plus(arrayOf(romanNumber[index-1], romanDigit))
-        } else {
-            result += romanDigit.decode()
+        if(index > 0 && romanDigit.hasAsMinusDigit(romanNumber[index-1])) {
+            result -= romanNumber[index - 1].decode() * 2
         }
+        result += romanDigit.decode()
     }
     return result
 }
-
-private fun Int.plus(romanDigits: Array<Char>): Int = this.plus(romanDigits[1].decode() - romanDigits[0].decode())
-
-private fun Int.undoPreviousOperation(romanNumber: String, index: Int): Int = this - romanNumber[index - 1].decode()
 
 private fun Char.decode(): Int =
     VALUES.containsKey(this).let { VALUES[this] } ?: throw RuntimeException("Invalid value [$this]")
