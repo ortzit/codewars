@@ -1,1 +1,0 @@
-C:\Users\Ortzi\Documents\Workspace\codewars\build\classes\kotlin\main\romannumerals\RomanNumeralsKt.class
